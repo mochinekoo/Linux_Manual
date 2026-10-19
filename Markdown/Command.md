@@ -9,6 +9,9 @@
 * wall ＜メッセージ＞ ：ログインしている全員にメッセージを送る
 * sleep ＜秒数＞ ：指定した時間の秒数待つ
 * history ： コマンドの履歴を見るコマンド
+* ssh ： sshで接続するコマンド
+  * ```ssh user@127.0.0.1``` ：userというユーザーで、127.0.0.1のサーバーに接続するコマンド
+* whoami ： ログインして操作しているユーザー名。userでログインしているなら、userと表示される。
 
 
 # ポート開放
@@ -58,6 +61,12 @@
 
 
 # Docker
+* docker pull ： イメージをダウンロードする
+* docker run ：イメージからコンテナを生成し、コマンドを実行する
+  *　docker -it ubuntu ： ubuntuを生成する。 
+* docker ps ：コンテナ一覧を表示
+* docker exec ：実行中のコンテナ内で、新しいプロセスを実行する
+  *　```sudo docker exec -it php_itemsearch-php-1 echo "a"``` 
 * Dockerfileとcompose.ymlを記述する。
 * WORKDIRは、作業する場所で、指定した場所が基準となる。
 ```Dockerfile
