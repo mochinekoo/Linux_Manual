@@ -5,8 +5,10 @@
 * wget インターネット上からファイルを入手するコマンド
   * wget <URL> でファイルを入手することができる
 * less ＜ファイル名＞ ：ファイルをスクロールしながら見る。パイプすると、コマンドの結果にも使える。
+ * ``` history | less ``` 
 * wall ＜メッセージ＞ ：ログインしている全員にメッセージを送る
 * sleep ＜秒数＞ ：指定した時間の秒数待つ
+* history ： コマンドの履歴を見るコマンド
 
 
 # ポート開放
@@ -55,3 +57,22 @@
 |free|空きメモリー|
 
 
+# Docker
+* Dockerfileとcompose.ymlを記述する。
+* WORKDIRは、作業する場所で、指定した場所が基準となる。
+```Dockerfile
+FROM php:8.5-apache
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+WORKDIR /var/www/html
+COPY . /var/www/html 
+```
+* ポートは、ホスト側（接続する側）：コンテナ側
+```yaml
+services:
+  php:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+```
