@@ -1,7 +1,9 @@
+# インストール
 ```
 sudo apt-get install apahce2
 ```
 
+* PHPもインストールする場合
 ```
 sudo apt-get install php php-mysql
 ```
