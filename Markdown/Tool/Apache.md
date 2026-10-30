@@ -12,10 +12,16 @@ sudo apt-get install php php-mysql
 * /etc/apahce2/apache2.confで設定
 * タグの中に、設定したいディレクティブを書く。その後は ```sudo systemctl restart apache``` で再起動をする
 * また、.htaccessファイルを使うことで、ファイルでディレクティブを設定できる。
+* 書式チェックは　```apachectl configtest```
 ```
 <Directory /var/www/html/PHP_ItemSearch>
   
 </Directory>
+```
+
+```
+<Files *.php>
+</Files>
 ```
 
 ## バーチャルホスト
@@ -31,9 +37,15 @@ sudo apt-get install php php-mysql
 </VirtualHost>
 ```
 
+#
+* DirectoryIndex ：デフォルトのページ。
+    *　DirectoryIndex main.php　とやると、○○.com/main.php とやらなくても、○○.comだけで良い
+
+
 ## Require
 * 権限許可： Require all granted
 * 権限拒否： Require all denied
+* IP制限：Require ip 127.0.0.1
 
 ## AllowOverride
 * .htaccess を無視：AllowOverride None
@@ -53,3 +65,10 @@ AuthBasicProvider file
 AuthUserFile パスワードの場所
 Require valid-user
 ```
+
+## ステータス
+```
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+```
+
