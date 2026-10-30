@@ -45,7 +45,7 @@ sudo apt-get install php php-mysql
 ## Require
 * 権限許可： Require all granted
 * 権限拒否： Require all denied
-* IP制限：Require ip 127.0.0.1
+* IP許可：Require ip 127.0.0.1
 
 ## AllowOverride
 * .htaccess を無視：AllowOverride None
